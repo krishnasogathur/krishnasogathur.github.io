@@ -5,27 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Krishna Balaji Sogathur </title>
     <style>
-        li {
-            display: inline;
-        }
-    
-        a {
-            display: block;
-            padding: 8px;
-            background-color: #dddddd;
-            text-decoration: none; /* Remove the underline from links */
-        }
-    
-        ul {
-            list-style-type: none; /* Remove the default list styles */
+        nav ul {
+            list-style-type: none;
             margin: 0;
             padding: 0;
-            border: 1px solid #e7e7e7;
+            overflow: hidden;
             background-color: #f3f3f3;
+            border: 1px solid #e7e7e7;
         }
-    
-        li a {
+
+        nav li {
+            float: left;
+        }
+
+        nav li a {
+            display: block;
+            padding: 8px;
+            text-decoration: none;
             color: #666;
+        }
+
+        nav li a:hover {
+            background-color: #dddddd;
         }
     </style>
 </head>
