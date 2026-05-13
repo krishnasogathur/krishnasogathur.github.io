@@ -5,125 +5,148 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projects | Krishna Balaji S</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #fafafa;
-      --text: #1a1a1a;
-      --muted: #666;
-      --accent: #2563eb;
-      --border: #e5e7eb;
+      --dark:   #0f172a;
+      --accent: #6366f1;
+      --text:   #0f172a;
+      --sub:    #475569;
+      --muted:  #94a3b8;
+      --border: #e2e8f0;
+      --bg:     #f8fafc;
     }
 
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      -webkit-font-smoothing: antialiased;
       background: var(--bg);
       color: var(--text);
     }
 
     /* ── Nav ── */
     nav {
-      padding: 0 32px;
-      height: 54px;
-      display: flex;
-      align-items: center;
-      gap: 28px;
-      background: #fff;
-      border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
+      height: 58px;
+      padding: 0 6vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(15, 23, 42, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
       z-index: 100;
     }
 
-    nav a {
-      text-decoration: none;
-      font-size: 0.88rem;
-      color: var(--muted);
-      font-weight: 500;
-      transition: color 0.15s;
-    }
-    nav a:hover { color: var(--text); }
-    nav .home { font-weight: 600; color: var(--text); margin-right: 4px; }
-    nav a.active { color: var(--text); }
-
-    /* ── Layout ── */
-    main {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 64px 24px 100px;
-    }
-
-    .page-header { margin-bottom: 64px; }
-
-    .page-header h1 {
-      font-size: 2rem;
+    .nav-brand {
+      font-size: 0.95rem;
       font-weight: 600;
-      letter-spacing: -0.025em;
-      margin-bottom: 8px;
+      color: #fff;
+      text-decoration: none;
+      letter-spacing: -0.01em;
     }
 
-    .page-header p {
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      font-size: 0.84rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      transition: color 0.18s;
+    }
+    .nav-links a:hover,
+    .nav-links a.active { color: #fff; }
+
+    /* ── Page header ── */
+    .page-head {
+      background: var(--dark);
+      padding: 72px 6vw 60px;
+    }
+
+    .page-head h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+    }
+
+    .page-head p {
       font-size: 1rem;
-      color: var(--muted);
-      line-height: 1.6;
+      color: rgba(255,255,255,0.4);
+      max-width: 520px;
+      line-height: 1.7;
+    }
+
+    /* ── Main ── */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 72px 24px 100px;
     }
 
     /* ── Project card ── */
     .project {
-      padding: 48px 0;
-      border-top: 1px solid var(--border);
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 44px 48px;
+      margin-bottom: 28px;
+      transition: box-shadow 0.2s;
     }
-
-    .project:first-of-type { border-top: none; padding-top: 0; }
+    .project:hover { box-shadow: 0 8px 40px rgba(0,0,0,0.07); }
 
     .project-meta {
       display: flex;
       align-items: center;
       gap: 10px;
       flex-wrap: wrap;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
     }
 
     .year {
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       font-weight: 600;
       color: var(--muted);
-      letter-spacing: 0.04em;
+      letter-spacing: 0.05em;
     }
 
     .tag {
-      font-size: 0.73rem;
-      font-weight: 500;
+      font-size: 0.71rem;
+      font-weight: 600;
       padding: 3px 10px;
       border-radius: 20px;
-      background: #eff6ff;
-      color: #1d4ed8;
+      background: #eef2ff;
+      color: #4338ca;
     }
 
     .project h2 {
-      font-size: 1.35rem;
-      font-weight: 600;
-      letter-spacing: -0.015em;
-      margin-bottom: 4px;
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 6px;
       line-height: 1.3;
     }
 
     .project-affil {
-      font-size: 0.83rem;
+      font-size: 0.82rem;
       color: var(--muted);
-      margin-bottom: 18px;
+      margin-bottom: 20px;
     }
     .project-affil a { color: var(--muted); text-decoration: underline; text-underline-offset: 3px; }
     .project-affil a:hover { color: var(--accent); }
 
     .project-body {
-      font-size: 0.97rem;
-      line-height: 1.8;
-      color: #3a3a3a;
+      font-size: 0.95rem;
+      line-height: 1.85;
+      color: var(--sub);
     }
-    .project-body p + p { margin-top: 14px; }
+    .project-body p + p { margin-top: 12px; }
 
     /* ── Figures ── */
     .fig {
@@ -133,102 +156,102 @@
 
     .fig img {
       max-width: 100%;
-      border-radius: 8px;
+      border-radius: 10px;
       border: 1px solid var(--border);
       background: #fff;
     }
 
     .fig figcaption {
-      font-size: 0.8rem;
+      font-size: 0.79rem;
       color: var(--muted);
       margin-top: 10px;
-      line-height: 1.5;
-      max-width: 600px;
+      line-height: 1.55;
+      max-width: 560px;
       margin-left: auto;
       margin-right: auto;
     }
 
     .fig-row {
       display: flex;
-      gap: 14px;
+      gap: 12px;
       justify-content: center;
       flex-wrap: wrap;
     }
 
-    .fig-row figure {
-      flex: 1;
-      min-width: 160px;
-      max-width: 260px;
-    }
+    .fig-row figure { flex: 1; min-width: 140px; max-width: 240px; }
+    .fig-row img { width: 100%; border-radius: 8px; border: 1px solid var(--border); }
+    .fig-row figcaption { font-size: 0.75rem; color: var(--muted); margin-top: 6px; text-align: center; }
 
-    .fig-row img {
-      width: 100%;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      background: #fff;
-    }
-
-    .fig-row figcaption {
-      font-size: 0.76rem;
-      color: var(--muted);
-      margin-top: 6px;
-      text-align: center;
-    }
-
-    /* ── Links ── */
+    /* ── Project links ── */
     .project-links {
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
-      margin-top: 24px;
+      margin-top: 28px;
     }
 
     .plink {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 8px 18px;
+      padding: 9px 20px;
       border: 1px solid var(--border);
-      border-radius: 6px;
-      font-size: 0.87rem;
-      font-weight: 500;
+      border-radius: 8px;
+      font-size: 0.84rem;
+      font-weight: 600;
       text-decoration: none;
       color: var(--text);
-      background: #fff;
+      background: var(--bg);
       transition: all 0.15s;
     }
-    .plink:hover { border-color: var(--accent); color: var(--accent); }
+    .plink:hover { border-color: var(--accent); color: var(--accent); background: #eef2ff; }
 
+    /* ── Footer ── */
     footer {
-      text-align: center;
-      padding: 36px;
-      color: var(--muted);
-      font-size: 0.82rem;
-      border-top: 1px solid var(--border);
+      background: var(--dark);
+      padding: 36px 6vw;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
     }
-    footer a { color: inherit; }
+    footer span { font-size: 0.8rem; color: rgba(255,255,255,0.25); }
+    .footer-links { display: flex; gap: 20px; }
+    footer a { font-size: 0.8rem; color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.18s; }
+    footer a:hover { color: rgba(255,255,255,0.8); }
+
+    @media (max-width: 720px) {
+      nav { padding: 0 20px; }
+      .page-head { padding: 60px 20px 48px; }
+      main { padding: 48px 16px 80px; }
+      .project { padding: 28px 24px; }
+      footer { padding: 28px 20px; flex-direction: column; align-items: flex-start; }
+    }
   </style>
 </head>
 <body>
 
   <nav>
-    <a class="home" href="index.html">Krishna Balaji S</a>
-    <a href="projects.html" class="active">Projects</a>
-    <a href="research.html">Research</a>
-    <a href="motivation.html">Motivation</a>
+    <a class="nav-brand" href="index.html">Krishna Balaji S</a>
+    <ul class="nav-links">
+      <li><a href="projects.html" class="active">Projects</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="https://github.com/krishnasogathur" target="_blank">GitHub</a></li>
+    </ul>
   </nav>
+
+  <div class="page-head">
+    <h1>Projects</h1>
+    <p>Numerical methods and simulations for open quantum systems and neutral-atom physics.</p>
+  </div>
 
   <main>
 
-    <div class="page-header">
-      <h1>Projects</h1>
-      <p>Numerical methods for open quantum systems and neutral-atom physics.</p>
-    </div>
-
-    <!-- ── soft-mcwf ── -->
+    <!-- soft-mcwf -->
     <div class="project">
       <div class="project-meta">
-        <span class="year">2025 – 2026</span>
+        <span class="year">2025 &ndash; 2026</span>
         <span class="tag">Python</span>
         <span class="tag">MCWF</span>
         <span class="tag">Quantum optics</span>
@@ -236,14 +259,14 @@
       <h2>Grid-based MCWF solver for soft potentials</h2>
       <p class="project-affil">Open-source &middot; <a href="https://github.com/krishnasogathur/soft-mcwf" target="_blank">soft-mcwf</a></p>
       <div class="project-body">
-        <p>Standard quantum optics toolkits represent motional states in the Fock basis — natural for harmonic traps, but poorly suited to anharmonic potentials like Gaussian tweezers or optical lattices where many Fock states are needed for convergence. This solver works directly on a real-space momentum grid, representing the wavefunction as &psi;(p) with position obtained via FFT, giving an exact description for arbitrary soft potentials.</p>
-        <p>Applied to a Yb-171 atom in a 1D optical lattice (759 nm) under continuous near-resonant imaging (399 nm): photon recoil drives heating and eventual loss. Observables include Wigner function evolution, Wannier site population dynamics, and off-diagonal density matrix coherences. Trajectories are parallelised via <code>joblib</code> with incremental disk saves.</p>
+        <p>Standard quantum optics toolkits represent motional states in the Fock basis &mdash; natural for harmonic traps, but poorly convergent for anharmonic potentials like Gaussian tweezers or optical lattices. This solver works directly on a real-space momentum grid, representing the wavefunction as &psi;(p) with position obtained via FFT, giving an exact description for arbitrary soft potentials with no basis truncation.</p>
+        <p>Applied to a Yb-171 atom in a 1D optical lattice (759 nm) under continuous near-resonant imaging (399 nm): photon recoil drives heating and loss. Observables include the full Wigner function, Wannier site population dynamics, and off-diagonal density matrix coherences. Trajectories are parallelised via <code>joblib</code>.</p>
       </div>
 
       <figure class="fig">
         <img src="https://raw.githubusercontent.com/krishnasogathur/soft-mcwf/main/results/lattice_heating/wigner_evolution.gif"
              alt="Wigner function evolution during lattice heating" loading="lazy">
-        <figcaption>Wigner function evolving under continuous imaging. Phase-space coherences degrade as the atom heats across lattice sites and eventually escapes the trap.</figcaption>
+        <figcaption>Wigner function evolving under continuous imaging. Phase-space coherences degrade as the atom heats across lattice sites and eventually escapes.</figcaption>
       </figure>
 
       <div class="fig-row">
@@ -256,20 +279,20 @@
           <figcaption>Mid-evolution</figcaption>
         </figure>
         <figure>
-          <img src="https://raw.githubusercontent.com/krishnasogathur/soft-mcwf/main/results/lattice_heating/wigner_final.png" alt="Final Wigner function" loading="lazy">
+          <img src="https://raw.githubusercontent.com/krishnasogathur/soft-mcwf/main/results/lattice_heating/wigner_final.png" alt="Final state" loading="lazy">
           <figcaption>Final state</figcaption>
         </figure>
       </div>
 
       <div class="project-links">
-        <a class="plink" href="https://github.com/krishnasogathur/soft-mcwf" target="_blank">GitHub ↗</a>
+        <a class="plink" href="https://github.com/krishnasogathur/soft-mcwf" target="_blank">GitHub &nearr;</a>
       </div>
     </div>
 
-    <!-- ── multimode-tdvp ── -->
+    <!-- multimode-tdvp -->
     <div class="project">
       <div class="project-meta">
-        <span class="year">2025 – 2026</span>
+        <span class="year">2025 &ndash; 2026</span>
         <span class="tag">Python</span>
         <span class="tag">TDVP</span>
         <span class="tag">Variational methods</span>
@@ -277,44 +300,44 @@
       <h2>Variational Gaussian TDVP for multimode open systems</h2>
       <p class="project-affil">Open-source &middot; <a href="https://github.com/krishnasogathur/multimode-tdvp" target="_blank">multimode-tdvp</a></p>
       <div class="project-body">
-        <p>Exact simulation of open quantum systems scales exponentially with mode number — a density matrix for <em>d</em> modes with Fock cutoff <em>N</em> has N<sup>d</sup> entries. This solver represents the state as a superposition of displaced, squeezed Gaussian coherent states, with variational parameters evolved via the McLachlan TDVP principle. The problem reduces to one scaling as O(N<sub>Gauss</sub> &times; d), enabling multimode simulations out of reach for exact methods.</p>
-        <p>Lindblad dissipation is handled via quantum trajectories: between jumps, the non-Hermitian effective Hamiltonian drives TDVP evolution; at a jump event, the operator is applied analytically within the Gaussian manifold (spin decay, cavity loss, recoil displacement). Benchmarked against QuTiP on a Kerr anharmonic oscillator, matching the exact phase-space distribution with only 4 Gaussian components.</p>
+        <p>Exact simulation of open quantum systems scales exponentially with mode number. This solver represents the state as a superposition of displaced, squeezed Gaussian coherent states, with variational parameters evolved under the McLachlan TDVP principle. The problem reduces from an exponential Hilbert space to one scaling as O(N<sub>Gauss</sub> &times; d), making multimode problems tractable.</p>
+        <p>Lindblad dissipation is handled via quantum trajectories: between jumps the non-Hermitian effective Hamiltonian drives TDVP evolution; at a jump event the operator is applied analytically within the Gaussian manifold. Benchmarked against QuTiP on a Kerr anharmonic oscillator, matching the exact result with only 4 Gaussian components.</p>
       </div>
 
       <figure class="fig">
         <div class="fig-row">
           <figure>
             <img src="https://raw.githubusercontent.com/krishnasogathur/multimode-tdvp/main/results/kerr/0.1mu.png"
-                 alt="TDVP result for Kerr oscillator" loading="lazy">
-            <figcaption>TDVP (4 Gaussians)</figcaption>
+                 alt="TDVP Kerr result" loading="lazy">
+            <figcaption>TDVP &mdash; 4 Gaussians</figcaption>
           </figure>
           <figure>
             <img src="https://raw.githubusercontent.com/krishnasogathur/multimode-tdvp/main/results/kerr/0.1mu-qutip.png"
-                 alt="QuTiP exact result for Kerr oscillator" loading="lazy">
-            <figcaption>QuTiP (exact)</figcaption>
+                 alt="QuTiP exact result" loading="lazy">
+            <figcaption>QuTiP &mdash; exact</figcaption>
           </figure>
         </div>
-        <figcaption style="margin-top:14px;">Kerr oscillator benchmark: H = &omega;a&dagger;a + &mu;(a&dagger;)&sup2;a&sup2;, &mu; = 0.1&omega;. TDVP phase-space and momentum distributions match the exact result.</figcaption>
+        <figcaption style="margin-top:14px;">Kerr oscillator: H = &omega;a&dagger;a + &mu;(a&dagger;)&sup2;a&sup2;, &mu; = 0.1&omega;. TDVP phase-space and momentum distributions match the exact QuTiP result.</figcaption>
       </figure>
 
       <div class="project-links">
-        <a class="plink" href="https://github.com/krishnasogathur/multimode-tdvp" target="_blank">GitHub ↗</a>
+        <a class="plink" href="https://github.com/krishnasogathur/multimode-tdvp" target="_blank">GitHub &nearr;</a>
       </div>
     </div>
 
-    <!-- ── Master's thesis ── -->
+    <!-- Master's thesis -->
     <div class="project">
       <div class="project-meta">
-        <span class="year">2024 – 2025</span>
+        <span class="year">2024 &ndash; 2025</span>
         <span class="tag">Python</span>
         <span class="tag">Neutral atoms</span>
         <span class="tag">Laser cooling</span>
       </div>
       <h2>Master&rsquo;s project: Neutral atoms in optical tweezers under resonant imaging</h2>
-      <p class="project-affil">Master&rsquo;s thesis &middot; IIT Madras</p>
+      <p class="project-affil">M.Sc. thesis &middot; IIT Madras</p>
       <div class="project-body">
-        <p>Studied the quantum dynamics of a neutral atom trapped in an optical tweezer under continuous resonant imaging. Imaging photons scatter at rate &Gamma;, imparting &plusmn;&hbar;k recoil kicks and driving transitions between internal states — causing heating and eventual loss from the trap. This is a fundamental constraint for tweezer-based quantum computing and quantum sensing, where high-fidelity mid-circuit measurements require surviving many photon scatters.</p>
-        <p>The simulation tracks the full motional + internal state quantum trajectory, enabling direct comparison against classical trajectory simulations and characterisation of the quantum-to-classical transition in the heating dynamics.</p>
+        <p>Studied the quantum dynamics of a neutral atom trapped in an optical tweezer under continuous resonant imaging. Imaging photons scatter at rate &Gamma;, imparting &plusmn;&hbar;k recoil kicks and driving internal state transitions, causing heating and eventual trap loss. This is a fundamental constraint for tweezer-based quantum computing, where atoms must survive many photon scatters during mid-circuit measurements.</p>
+        <p>Simulation tracks the full motional + internal state quantum trajectory, with direct comparison against classical trajectory simulations to characterise the quantum-to-classical crossover in heating dynamics.</p>
       </div>
 
       <figure class="fig">
@@ -323,15 +346,20 @@
       </figure>
 
       <div class="project-links">
-        <a class="plink" href="research.html">Full research page →</a>
-        <a class="plink" href="research-results.pdf" target="_blank">Results PDF ↗</a>
+        <a class="plink" href="research.html">Full research page &rarr;</a>
+        <a class="plink" href="research-results.pdf" target="_blank">Results PDF &nearr;</a>
       </div>
     </div>
 
   </main>
 
   <footer>
-    <a href="index.html">Krishna Balaji S</a> &middot; <a href="mailto:krishna.s.balaji@gmail.com">krishna.s.balaji@gmail.com</a>
+    <span>&copy; 2026 Krishna Balaji S</span>
+    <div class="footer-links">
+      <a href="https://github.com/krishnasogathur" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/krishnasogathur" target="_blank">LinkedIn</a>
+      <a href="mailto:krishna.s.balaji@gmail.com">Email</a>
+    </div>
   </footer>
 
 </body>
