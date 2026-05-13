@@ -70,7 +70,9 @@
     /* ── Hero ── */
     .hero {
       min-height: 100vh;
-      background: var(--dark);
+      background-image: url('header.png');
+      background-size: cover;
+      background-position: center;
       display: flex;
       align-items: center;
       padding: 100px 6vw 80px;
@@ -78,27 +80,11 @@
       overflow: hidden;
     }
 
-    /* subtle dot grid */
     .hero::before {
       content: '';
       position: absolute;
       inset: 0;
-      background-image: radial-gradient(rgba(99,102,241,0.15) 1px, transparent 1px);
-      background-size: 32px 32px;
-      -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, #000 40%, transparent 100%);
-      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, #000 40%, transparent 100%);
-    }
-
-    /* indigo glow */
-    .hero::after {
-      content: '';
-      position: absolute;
-      top: -10%;
-      left: -5%;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(99,102,241,0.12) 0%, transparent 65%);
-      pointer-events: none;
+      background: linear-gradient(135deg, rgba(10,14,20,0.82) 0%, rgba(10,14,20,0.65) 100%);
     }
 
     .hero-inner {
@@ -318,7 +304,7 @@
     <div class="hero-inner">
       <p class="hero-eyebrow">Hi, I'm</p>
       <h1>Krishna<br>Balaji S</h1>
-      <p class="hero-sub">Quantum engineering &middot; Atomic physics &middot; Open quantum systems</p>
+      <p class="hero-sub">Atomic physics and quantum dynamics</p>
       <p class="hero-desc">I study how atoms behave when trapped and continuously observed &mdash; where decoherence, photon recoil, and non-Hermitian dynamics interplay. Currently building numerical tools to simulate this at scales where exact methods fail.</p>
       <div class="hero-ctas">
         <a class="cta-primary" href="projects.html">View Projects &rarr;</a>
