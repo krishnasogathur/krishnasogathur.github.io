@@ -218,6 +218,24 @@
              alt="Simulation vs Falconi et al." loading="lazy">
         <figcaption>Simulated atom loss probability vs trap depth, compared with Falconi <em>et al.</em>, PRL (2025). The non-magic wavelength case (state-dependent potential) reproduces the experimental trend.</figcaption>
       </figure>
+      <p style="margin-top: 8px; font-size: 0.84rem;">Code: <a href="projects.html#soft-mcwf" style="color: var(--accent); font-weight: 500;">soft-mcwf</a> &middot; <a href="https://github.com/krishnasogathur/soft-mcwf" target="_blank" style="color: var(--accent); font-weight: 500;">GitHub &nearr;</a></p>
+    </div>
+
+    <!-- ZS + 2D MOT -->
+    <div class="section">
+      <span class="section-label">Master&rsquo;s project &mdash; IIT Madras, 2024&ndash;2025</span>
+      <h2>Zeeman slower and 2D MOT design for a Yb-171 apparatus</h2>
+
+      <p>Designed the cold-atom loading chain for a Yb-171 tweezer platform: an atomic Zeeman slower (ZS) followed by a 2D magneto-optical trap, both on the broad 399&thinsp;nm transition. The goal was to maximise the capture velocity into the 2D MOT given realistic beam powers and permanent-magnet geometry constraints.</p>
+
+      <p>Semiclassical trajectory simulations compute the radiation-pressure force along each atomic path. Two scattering-rate models (shared saturation and effective s<sub>eff</sub>) bracket the true multi-beam rate. Beam detunings, powers, and magnet configurations (N=5 or N=6 segments) were optimised jointly via two-stage Bayesian optimisation (scikit-optimize), maximising the fraction of atoms captured into the MOT.</p>
+
+      <figure class="fig">
+        <img src="https://raw.githubusercontent.com/krishnasogathur/azs-2dmot/main/upper/results/optimalcurves.png"
+             alt="Capture fraction vs axial velocity" loading="lazy">
+        <figcaption>Capture fraction as a function of initial axial velocity at optimised parameters. The step-function edge reflects the deterministic mean-force regime of the Zeeman slower.</figcaption>
+      </figure>
+      <p style="margin-top: 8px; font-size: 0.84rem;">Code: <a href="projects.html#azs-2dmot" style="color: var(--accent); font-weight: 500;">azs-2dmot</a> &middot; <a href="https://github.com/krishnasogathur/azs-2dmot" target="_blank" style="color: var(--accent); font-weight: 500;">GitHub &nearr;</a></p>
     </div>
 
     <!-- Summer internship -->
