@@ -225,7 +225,7 @@
 
   <div class="page-head">
     <h1>Projects</h1>
-    <p>Numerical methods and simulations for open quantum systems and neutral-atom physics.</p>
+    <p>Numerical simulations for quantum optics, laser cooling, and astrophysical data analysis.</p>
   </div>
 
   <main>
@@ -312,6 +312,36 @@
 
       <div class="project-links">
         <a class="plink" href="https://github.com/krishnasogathur/azs-2dmot" target="_blank">GitHub &nearr;</a>
+      </div>
+    </div>
+
+    <!-- astro-interiit -->
+    <div class="project" id="astro-interiit">
+      <div class="project-meta">
+        <span class="year">2024</span>
+        <span class="tag">Python</span>
+        <span class="tag">X-ray spectroscopy</span>
+        <span class="tag">Astrophysics</span>
+      </div>
+      <h2>Lunar elemental mapping from Chandrayaan-2 XRF data</h2>
+      <p class="project-affil">Inter-IIT Tech Meet 2024 &middot; <a href="https://github.com/krishnasogathur/Astro-High-Prep-Inter-IIT-2024" target="_blank">Astro-High-Prep-Inter-IIT-2024</a></p>
+      <div class="project-body">
+        <p>Built a forward model for X-ray fluorescence (XRF) from the lunar surface excited by solar flares, fitted to data from the CLASS instrument aboard Chandrayaan-2. The pipeline extracts flare-coincident CLASS spectra, constructs a local XRF model with primary and secondary fluorescence contributions and a Rayleigh scattering term, then fits elemental abundances via PYXSPEC.</p>
+        <p>Key contributions: a vectorised XRF forward model (FASTER.py) using tensorised integrals for element-wise photoelectric cross-sections and characteristic line emission, and an analytic Rayleigh scattering integral against the solar spectrum. The scattering model reproduces the observed continuum across 0.9-4.2 keV.</p>
+      </div>
+
+      <figure class="fig">
+        <img src="media/astro-interiit/pipeline.png" alt="XRF analysis pipeline" loading="lazy">
+        <figcaption>Analysis pipeline: XSM solar monitor data and CLASS X-ray spectra are filtered for solar flare windows and dayside passes, then jointly fitted in PYXSPEC with the local XRF model and Rayleigh scattering model to extract elemental abundances.</figcaption>
+      </figure>
+
+      <figure class="fig">
+        <img src="media/astro-interiit/scattering_model_right_data_left.png" alt="Scattering model vs CLASS data" loading="lazy">
+        <figcaption>CLASS scatter table (left) vs. the analytic Rayleigh scattering model (right). The model reproduces the spectral shape across the 0.9-4.2 keV fitting window.</figcaption>
+      </figure>
+
+      <div class="project-links">
+        <a class="plink" href="https://github.com/krishnasogathur/Astro-High-Prep-Inter-IIT-2024" target="_blank">GitHub &nearr;</a>
       </div>
     </div>
 
