@@ -94,16 +94,25 @@
       margin-bottom: 28px;
     }
 
-    /* two-column layout */
     .section-inner {
       display: flex;
       gap: 40px;
-      align-items: center;
+      align-items: stretch;
     }
 
+    /* text column: label+h2 pin top, body centers in remaining space */
     .section-text {
       flex: 1;
       min-width: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .section-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .section-aside {
@@ -130,12 +139,14 @@
       margin-bottom: 20px;
     }
 
-    .section-text p {
+    .section-body p {
       font-size: 0.95rem;
       line-height: 1.85;
       color: var(--sub);
       margin-bottom: 12px;
     }
+
+    .section-body p:last-child { margin-bottom: 0; }
 
     .fig {
       margin: 20px 0;
@@ -177,7 +188,7 @@
       .page-head { padding: 60px 20px 48px; }
       main { padding: 48px 16px 80px; }
       .section { padding: 28px 24px; }
-      .section-inner { flex-direction: column; }
+      .section-inner { flex-direction: column; align-items: stretch; }
       .section-aside { width: 100%; flex: none; }
       footer { padding: 28px 20px; flex-direction: column; align-items: flex-start; }
     }
@@ -207,8 +218,10 @@
         <div class="section-text">
           <span class="section-label">Master&rsquo;s project - IIT Madras, 2024&ndash;2025</span>
           <h2>Evolution of neutral atoms in optical tweezers under resonant imaging</h2>
-          <p>Studied the dynamics of a neutral atom trapped in a Gaussian optical tweezer imaged using a fast-imaging scheme (alternating counter-propagating near-resonant pulses). Each scattered photon imparts &plusmn;&hbar;k recoil and drives internal state transitions, causing a competition between trapping and heating that eventually leads to atom loss. This process limits the fidelity of non-destructive measurements in tweezer-based quantum computing platforms.</p>
-          <p style="font-size: 0.84rem;">Code: <a href="projects.html#soft-mcwf" style="color: var(--accent); font-weight: 500;">soft-mcwf</a> &middot; <a href="https://github.com/krishnasogathur/soft-mcwf" target="_blank" style="color: var(--accent); font-weight: 500;">GitHub &nearr;</a></p>
+          <div class="section-body">
+            <p>Studied the dynamics of a neutral atom trapped in a Gaussian optical tweezer imaged using a fast-imaging scheme (alternating counter-propagating near-resonant pulses). Each scattered photon imparts &plusmn;&hbar;k recoil and drives internal state transitions, causing a competition between trapping and heating that eventually leads to atom loss. This process limits the fidelity of non-destructive measurements in tweezer-based quantum computing platforms.</p>
+            <p style="font-size: 0.84rem;">Code: <a href="projects.html#soft-mcwf" style="color: var(--accent); font-weight: 500;">soft-mcwf</a> &middot; <a href="https://github.com/krishnasogathur/soft-mcwf" target="_blank" style="color: var(--accent); font-weight: 500;">GitHub &nearr;</a></p>
+          </div>
         </div>
         <div class="section-aside">
           <figure class="fig">
@@ -231,9 +244,11 @@
         <div class="section-text">
           <span class="section-label">Master&rsquo;s project - IIT Madras, 2024&ndash;2025</span>
           <h2>Zeeman slower and 2D MOT design for a Yb-171 apparatus</h2>
-          <p>Designed the cold-atom loading chain for a Yb-171 tweezer platform: an atomic Zeeman slower (ZS) followed by a 2D magneto-optical trap, both on the broad 399&thinsp;nm transition. The goal was to maximise the capture velocity into the 2D MOT given realistic beam powers and permanent-magnet geometry constraints.</p>
-          <p>Semiclassical trajectory simulations compute the radiation-pressure force along each atomic path. Two scattering-rate models (shared saturation and effective s<sub>eff</sub>) bracket the true multi-beam rate. Beam detunings, powers, and magnet configurations (N=5 or N=6 segments) were optimised jointly via two-stage Bayesian optimisation (scikit-optimize), maximising the fraction of atoms captured into the MOT.</p>
-          <p style="font-size: 0.84rem;">Code: <a href="https://github.com/krishnasogathur/azs-2dmot" target="_blank" style="color: var(--accent); font-weight: 500;">GitHub &nearr;</a></p>
+          <div class="section-body">
+            <p>Designed the cold-atom loading chain for a Yb-171 tweezer platform: an atomic Zeeman slower (ZS) followed by a 2D magneto-optical trap, both on the broad 399&thinsp;nm transition. The goal was to maximise the capture velocity into the 2D MOT given realistic beam powers and permanent-magnet geometry constraints.</p>
+            <p>Semiclassical trajectory simulations compute the radiation-pressure force along each atomic path. Two scattering-rate models (shared saturation and effective s<sub>eff</sub>) bracket the true multi-beam rate. Beam detunings, powers, and magnet configurations (N=5 or N=6 segments) were optimised jointly via two-stage Bayesian optimisation (scikit-optimize), maximising the fraction of atoms captured into the MOT.</p>
+            <p style="font-size: 0.84rem;">Code: <a href="https://github.com/krishnasogathur/azs-2dmot" target="_blank" style="color: var(--accent); font-weight: 500;">GitHub &nearr;</a></p>
+          </div>
         </div>
         <div class="section-aside">
           <figure class="fig">
@@ -251,9 +266,11 @@
         <div class="section-text">
           <span class="section-label">Master&rsquo;s project - IIT Madras, 2024&ndash;2025</span>
           <h2>Novel techniques for open quantum system dynamics: multi-mode laser cooling</h2>
-          <p>Exact simulation of open quantum systems is prohibitively expensive for more than one or two modes: the density matrix grows exponentially with the number of modes. We developed a scalable alternative using a sum-of-Gaussians (SoG) variational ansatz - a superposition of displaced, squeezed Gaussian states - evolved under the McLachlan time-dependent variational principle (TDVP). The state is non-Gaussian overall, and accuracy improves with the number of Gaussian components, but the computational cost scales as O(N<sub>Gauss</sub>&thinsp;&times;&thinsp;d) rather than exponentially with mode number d.</p>
-          <p>Open-system dissipation is handled via quantum trajectories (MCWF): between jumps, the state evolves under a non-Hermitian effective Hamiltonian via TDVP; at each jump event, the jump operator is applied analytically within the Gaussian manifold. All matrix elements - overlaps, force vectors, Gram matrices - reduce to analytic single-mode Gaussian expectation values, derived and implemented as a core part of this work. Benchmarked against QuTiP on Kerr oscillators and 2D sideband cooling trajectories.</p>
-          <p style="font-size: 0.84rem;">Code: <a href="projects.html#multimode-tdvp" style="color: var(--accent); font-weight: 500;">multimode-tdvp</a> &middot; <a href="https://github.com/krishnasogathur/multimode-tdvp" target="_blank" style="color: var(--accent); font-weight: 500;">GitHub &nearr;</a></p>
+          <div class="section-body">
+            <p>Exact simulation of open quantum systems is prohibitively expensive for more than one or two modes: the density matrix grows exponentially with the number of modes. We developed a scalable alternative using a sum-of-Gaussians (SoG) variational ansatz - a superposition of displaced, squeezed Gaussian states - evolved under the McLachlan time-dependent variational principle (TDVP). The state is non-Gaussian overall, and accuracy improves with the number of Gaussian components, but the computational cost scales as O(N<sub>Gauss</sub>&thinsp;&times;&thinsp;d) rather than exponentially with mode number d.</p>
+            <p>Open-system dissipation is handled via quantum trajectories (MCWF): between jumps, the state evolves under a non-Hermitian effective Hamiltonian via TDVP; at each jump event, the jump operator is applied analytically within the Gaussian manifold. All matrix elements - overlaps, force vectors, Gram matrices - reduce to analytic single-mode Gaussian expectation values, derived and implemented as a core part of this work. Benchmarked against QuTiP on Kerr oscillators and 2D sideband cooling trajectories.</p>
+            <p style="font-size: 0.84rem;">Code: <a href="projects.html#multimode-tdvp" style="color: var(--accent); font-weight: 500;">multimode-tdvp</a> &middot; <a href="https://github.com/krishnasogathur/multimode-tdvp" target="_blank" style="color: var(--accent); font-weight: 500;">GitHub &nearr;</a></p>
+          </div>
         </div>
         <div class="section-aside">
           <figure class="fig">
@@ -275,8 +292,10 @@
       <div class="section-inner">
         <div class="section-text">
           <span class="section-label">Summer internship - Rb Quantum Simulator lab</span>
-          <h2>Optical tweezers and laser locking for a Rb quantum simulator</h2>
-          <p>Worked on two problems: generating optical tweezers using an acousto-optic deflector (AOD) for a Raman laser, and phase-locking two Raman lasers using an optical phase-locked loop (OPLL).</p>
+          <h2>Laser locking and optical tweezers of Raman beams for a Rb quantum processor</h2>
+          <div class="section-body">
+            <p>Worked on two problems: generating optical tweezers using an acousto-optic deflector (AOD) for a Raman laser, and phase-locking two Raman lasers using an optical phase-locked loop (OPLL).</p>
+          </div>
         </div>
         <div class="section-aside">
           <figure class="fig">
