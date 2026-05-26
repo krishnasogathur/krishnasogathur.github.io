@@ -99,22 +99,12 @@
     .project-inner {
       display: flex;
       gap: 40px;
-      align-items: stretch;
+      align-items: center;
     }
 
-    /* meta+h2+affil pin top, body+links center in remaining space */
     .project-text {
       flex: 1;
       min-width: 0;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .project-lower {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
     }
 
     .project-media {
@@ -270,13 +260,11 @@
           </div>
           <h2>Grid-based MCWF solver for open quantum systems</h2>
           <p class="project-affil">Open-source &middot; <a href="https://github.com/krishnasogathur/soft-mcwf" target="_blank">soft-mcwf</a></p>
-          <div class="project-lower">
-            <div class="project-body">
-              <p>A qMCWF solver using Split-Operator Fourier Transform (SOFT) for time evolution, working directly on a real-space grid. Avoids Fock-basis truncation issues for anharmonic potentials like optical lattices and Gaussian tweezers. Applied to Yb-171 atoms under the fast-imaging scheme, demonstrating classicality of the motional dynamics under strong heating and fast dissipation.</p>
-            </div>
-            <div class="project-links">
-              <a class="plink" href="https://github.com/krishnasogathur/soft-mcwf" target="_blank">GitHub &nearr;</a>
-            </div>
+          <div class="project-body">
+            <p>A qMCWF solver using Split-Operator Fourier Transform (SOFT) for time evolution, working directly on a real-space grid. Avoids Fock-basis truncation issues for anharmonic potentials like optical lattices and Gaussian tweezers. Applied to Yb-171 atoms under the fast-imaging scheme, demonstrating classicality of the motional dynamics under strong heating and fast dissipation.</p>
+          </div>
+          <div class="project-links">
+            <a class="plink" href="https://github.com/krishnasogathur/soft-mcwf" target="_blank">GitHub &nearr;</a>
           </div>
         </div>
         <div class="project-media">
@@ -305,14 +293,12 @@
           </div>
           <h2>Sum-of-Gaussians TDVP for multimode open systems</h2>
           <p class="project-affil">Open-source &middot; <a href="https://github.com/krishnasogathur/multimode-tdvp" target="_blank">multimode-tdvp</a></p>
-          <div class="project-lower">
-            <div class="project-body">
-              <p>Approximates quantum dynamics by restricting to a variational sum-of-Gaussians (SoG) manifold evolved under the McLachlan TDVP principle. The ansatz is non-Gaussian overall, scales as O(N<sub>Gauss</sub>&thinsp;&times;&thinsp;d) instead of exponentially with mode number, and improves with more Gaussian components. Lindblad dissipation is handled via quantum trajectories with jump operators applied analytically within the manifold. Benchmarked against QuTiP on Kerr oscillators and sideband cooling.</p>
-              <p style="font-size:0.85rem; color: var(--muted); margin-top: 4px;">Based on <a href="https://scipost.org/SciPostPhys.9.4.048" target="_blank" style="color:var(--muted);">Hackl <em>et al.</em>, SciPost Phys. 9, 048 (2020)</a> and <a href="https://doi.org/10.1063/5.0226268" target="_blank" style="color:var(--muted);">Bond <em>et al.</em>, J. Chem. Phys. 161, 184113 (2024)</a>.</p>
-            </div>
-            <div class="project-links">
-              <a class="plink" href="https://github.com/krishnasogathur/multimode-tdvp" target="_blank">GitHub &nearr;</a>
-            </div>
+          <div class="project-body">
+            <p>Approximates quantum dynamics by restricting to a variational sum-of-Gaussians (SoG) manifold evolved under the McLachlan TDVP principle. The ansatz is non-Gaussian overall, scales as O(N<sub>Gauss</sub>&thinsp;&times;&thinsp;d) instead of exponentially with mode number, and improves with more Gaussian components. Lindblad dissipation is handled via quantum trajectories with jump operators applied analytically within the manifold. Benchmarked against QuTiP on Kerr oscillators and sideband cooling.</p>
+            <p style="font-size:0.85rem; color: var(--muted); margin-top: 4px;">Based on <a href="https://scipost.org/SciPostPhys.9.4.048" target="_blank" style="color:var(--muted);">Hackl <em>et al.</em>, SciPost Phys. 9, 048 (2020)</a> and <a href="https://doi.org/10.1063/5.0226268" target="_blank" style="color:var(--muted);">Bond <em>et al.</em>, J. Chem. Phys. 161, 184113 (2024)</a>.</p>
+          </div>
+          <div class="project-links">
+            <a class="plink" href="https://github.com/krishnasogathur/multimode-tdvp" target="_blank">GitHub &nearr;</a>
           </div>
         </div>
         <div class="project-media">
@@ -337,14 +323,12 @@
           </div>
           <h2>Lunar elemental mapping from Chandrayaan-2 XRF data</h2>
           <p class="project-affil">Inter-IIT Tech Meet 2024 &middot; <a href="https://github.com/krishnasogathur/Astro-High-Prep-Inter-IIT-2024" target="_blank">Astro-High-Prep-Inter-IIT-2024</a></p>
-          <div class="project-lower">
-            <div class="project-body">
-              <p>Used five years of data from the CLASS X-ray spectrometer and XSM solar monitor aboard Chandrayaan-2 to map elemental abundances on the lunar surface. Solar flares excite XRF emission from the regolith; we built a forward model - primary and secondary fluorescence plus Rayleigh scattering against the solar spectrum - and solved the inversion problem to extract elemental composition from the measured spectra.</p>
-              <p>Key contributions: a vectorised XRF forward model (FASTER.py) using tensorised integrals for element-wise photoelectric cross-sections and characteristic line emission, and an analytic Rayleigh scattering integral. Fitting was done via PYXSPEC across the 0.9-4.2 keV band.</p>
-            </div>
-            <div class="project-links">
-              <a class="plink" href="https://github.com/krishnasogathur/Astro-High-Prep-Inter-IIT-2024" target="_blank">GitHub &nearr;</a>
-            </div>
+          <div class="project-body">
+            <p>Used five years of data from the CLASS X-ray spectrometer and XSM solar monitor aboard Chandrayaan-2 to map elemental abundances on the lunar surface. Solar flares excite XRF emission from the regolith; we built a forward model - primary and secondary fluorescence plus Rayleigh scattering against the solar spectrum - and solved the inversion problem to extract elemental composition from the measured spectra.</p>
+            <p>Key contributions: a vectorised XRF forward model (FASTER.py) using tensorised integrals for element-wise photoelectric cross-sections and characteristic line emission, and an analytic Rayleigh scattering integral. Fitting was done via PYXSPEC across the 0.9-4.2 keV band.</p>
+          </div>
+          <div class="project-links">
+            <a class="plink" href="https://github.com/krishnasogathur/Astro-High-Prep-Inter-IIT-2024" target="_blank">GitHub &nearr;</a>
           </div>
         </div>
         <div class="project-media">
