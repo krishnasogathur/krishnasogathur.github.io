@@ -26,7 +26,6 @@
       color: var(--text);
     }
 
-    /* ── Nav ── */
     nav {
       position: sticky;
       top: 0;
@@ -61,7 +60,6 @@
     .nav-links a:hover,
     .nav-links a.active { color: #fff; }
 
-    /* ── Page header ── */
     .page-head {
       background: var(--dark);
       padding: 72px 6vw 60px;
@@ -82,20 +80,35 @@
       line-height: 1.7;
     }
 
-    /* ── Content ── */
     main {
-      max-width: 860px;
+      max-width: 1200px;
       margin: 0 auto;
-      padding: 72px 24px 100px;
+      padding: 72px 32px 100px;
     }
 
-    /* Section */
     .section {
       background: #fff;
       border: 1px solid var(--border);
       border-radius: 16px;
       padding: 44px 48px;
       margin-bottom: 28px;
+    }
+
+    /* two-column layout */
+    .section-inner {
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+    }
+
+    .section-text {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .section-aside {
+      flex: 0 0 400px;
+      width: 400px;
     }
 
     .section-label {
@@ -108,7 +121,7 @@
       margin-bottom: 16px;
     }
 
-    .section h2 {
+    .section-text h2 {
       font-size: 1.3rem;
       font-weight: 700;
       letter-spacing: -0.02em;
@@ -117,18 +130,19 @@
       margin-bottom: 20px;
     }
 
-    .section p {
+    .section-text p {
       font-size: 0.95rem;
       line-height: 1.85;
       color: var(--sub);
       margin-bottom: 12px;
     }
 
-    /* Figures */
     .fig {
-      margin: 28px 0;
+      margin: 20px 0;
       text-align: center;
     }
+
+    .section-aside .fig:first-child { margin-top: 0; }
 
     .fig img {
       max-width: 100%;
@@ -144,21 +158,6 @@
       line-height: 1.55;
     }
 
-    .fig-row {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .fig-row img {
-      max-width: 380px;
-      width: 100%;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-    }
-
-    /* ── Footer ── */
     footer {
       background: var(--dark);
       padding: 36px 6vw;
@@ -173,12 +172,13 @@
     footer a { font-size: 0.8rem; color: rgba(255,255,255,0.35); text-decoration: none; transition: color 0.18s; }
     footer a:hover { color: rgba(255,255,255,0.8); }
 
-    @media (max-width: 720px) {
+    @media (max-width: 860px) {
       nav { padding: 0 20px; }
       .page-head { padding: 60px 20px 48px; }
       main { padding: 48px 16px 80px; }
       .section { padding: 28px 24px; }
-      .fig-row img { max-width: 100%; }
+      .section-inner { flex-direction: column; }
+      .section-aside { width: 100%; flex: none; }
       footer { padding: 28px 20px; flex-direction: column; align-items: flex-start; }
     }
   </style>
@@ -201,83 +201,94 @@
 
   <main>
 
-    <!-- Master's project -->
+    <!-- Master's project - tweezer -->
     <div class="section">
-      <span class="section-label">Master&rsquo;s project - IIT Madras, 2024&ndash;2025</span>
-      <h2>Evolution of neutral atoms in optical tweezers under resonant imaging</h2>
-
-      <p>Studied the dynamics of a neutral atom trapped in a Gaussian optical tweezer imaged using a fast-imaging scheme (alternating counter-propagating near-resonant pulses). Each scattered photon imparts &plusmn;&hbar;k recoil and drives internal state transitions, causing a competition between trapping and heating that eventually leads to atom loss. This process limits the fidelity of non-destructive measurements in tweezer-based quantum computing platforms.</p>
-
-      <figure class="fig">
-        <img src="https://raw.githubusercontent.com/krishnasogathur/soft-mcwf/main/results/tweezer_potential/classicality/rho_evolution.gif"
-             alt="Density matrix evolution in Gaussian tweezer" loading="lazy">
-        <figcaption>Density matrix evolving under the fast-imaging scheme in a Gaussian tweezer. Off-diagonal coherences decay as the atom heats and delocalises in the trap.</figcaption>
-      </figure>
-
-      <figure class="fig">
-        <img src="https://raw.githubusercontent.com/krishnasogathur/soft-mcwf/main/results/tweezer_potential/classicality/paper-compare.png"
-             alt="Simulation vs Falconi et al." loading="lazy">
-        <figcaption>Simulated atom loss probability vs trap depth, compared with Falconi <em>et al.</em>, PRL (2025). The non-magic wavelength case (state-dependent potential) reproduces the experimental trend.</figcaption>
-      </figure>
-      <p style="margin-top: 8px; font-size: 0.84rem;">Code: <a href="projects.html#soft-mcwf" style="color: var(--accent); font-weight: 500;">soft-mcwf</a> &middot; <a href="https://github.com/krishnasogathur/soft-mcwf" target="_blank" style="color: var(--accent); font-weight: 500;">GitHub &nearr;</a></p>
+      <div class="section-inner">
+        <div class="section-text">
+          <span class="section-label">Master&rsquo;s project - IIT Madras, 2024&ndash;2025</span>
+          <h2>Evolution of neutral atoms in optical tweezers under resonant imaging</h2>
+          <p>Studied the dynamics of a neutral atom trapped in a Gaussian optical tweezer imaged using a fast-imaging scheme (alternating counter-propagating near-resonant pulses). Each scattered photon imparts &plusmn;&hbar;k recoil and drives internal state transitions, causing a competition between trapping and heating that eventually leads to atom loss. This process limits the fidelity of non-destructive measurements in tweezer-based quantum computing platforms.</p>
+          <p style="font-size: 0.84rem;">Code: <a href="projects.html#soft-mcwf" style="color: var(--accent); font-weight: 500;">soft-mcwf</a> &middot; <a href="https://github.com/krishnasogathur/soft-mcwf" target="_blank" style="color: var(--accent); font-weight: 500;">GitHub &nearr;</a></p>
+        </div>
+        <div class="section-aside">
+          <figure class="fig">
+            <img src="https://raw.githubusercontent.com/krishnasogathur/soft-mcwf/main/results/tweezer_potential/classicality/rho_evolution.gif"
+                 alt="Density matrix evolution in Gaussian tweezer" loading="lazy">
+            <figcaption>Density matrix evolving under the fast-imaging scheme in a Gaussian tweezer. Off-diagonal coherences decay as the atom heats and delocalises in the trap.</figcaption>
+          </figure>
+          <figure class="fig">
+            <img src="https://raw.githubusercontent.com/krishnasogathur/soft-mcwf/main/results/tweezer_potential/classicality/paper-compare.png"
+                 alt="Simulation vs Falconi et al." loading="lazy">
+            <figcaption>Simulated atom loss probability vs trap depth, compared with Falconi <em>et al.</em>, PRL (2025). The non-magic wavelength case reproduces the experimental trend.</figcaption>
+          </figure>
+        </div>
+      </div>
     </div>
 
     <!-- ZS + 2D MOT -->
     <div class="section">
-      <span class="section-label">Master&rsquo;s project - IIT Madras, 2024&ndash;2025</span>
-      <h2>Zeeman slower and 2D MOT design for a Yb-171 apparatus</h2>
-
-      <p>Designed the cold-atom loading chain for a Yb-171 tweezer platform: an atomic Zeeman slower (ZS) followed by a 2D magneto-optical trap, both on the broad 399&thinsp;nm transition. The goal was to maximise the capture velocity into the 2D MOT given realistic beam powers and permanent-magnet geometry constraints.</p>
-
-      <p>Semiclassical trajectory simulations compute the radiation-pressure force along each atomic path. Two scattering-rate models (shared saturation and effective s<sub>eff</sub>) bracket the true multi-beam rate. Beam detunings, powers, and magnet configurations (N=5 or N=6 segments) were optimised jointly via two-stage Bayesian optimisation (scikit-optimize), maximising the fraction of atoms captured into the MOT.</p>
-
-      <figure class="fig">
-        <img src="https://raw.githubusercontent.com/krishnasogathur/azs-2dmot/main/upper/results/optimalcurves.png"
-             alt="Capture fraction vs axial velocity" loading="lazy">
-        <figcaption>Capture fraction as a function of initial axial velocity at optimised parameters. The step-function edge reflects the deterministic mean-force regime of the Zeeman slower.</figcaption>
-      </figure>
-      <p style="margin-top: 8px; font-size: 0.84rem;">Code: <a href="https://github.com/krishnasogathur/azs-2dmot" target="_blank" style="color: var(--accent); font-weight: 500;">GitHub &nearr;</a></p>
+      <div class="section-inner">
+        <div class="section-text">
+          <span class="section-label">Master&rsquo;s project - IIT Madras, 2024&ndash;2025</span>
+          <h2>Zeeman slower and 2D MOT design for a Yb-171 apparatus</h2>
+          <p>Designed the cold-atom loading chain for a Yb-171 tweezer platform: an atomic Zeeman slower (ZS) followed by a 2D magneto-optical trap, both on the broad 399&thinsp;nm transition. The goal was to maximise the capture velocity into the 2D MOT given realistic beam powers and permanent-magnet geometry constraints.</p>
+          <p>Semiclassical trajectory simulations compute the radiation-pressure force along each atomic path. Two scattering-rate models (shared saturation and effective s<sub>eff</sub>) bracket the true multi-beam rate. Beam detunings, powers, and magnet configurations (N=5 or N=6 segments) were optimised jointly via two-stage Bayesian optimisation (scikit-optimize), maximising the fraction of atoms captured into the MOT.</p>
+          <p style="font-size: 0.84rem;">Code: <a href="https://github.com/krishnasogathur/azs-2dmot" target="_blank" style="color: var(--accent); font-weight: 500;">GitHub &nearr;</a></p>
+        </div>
+        <div class="section-aside">
+          <figure class="fig">
+            <img src="https://raw.githubusercontent.com/krishnasogathur/azs-2dmot/main/upper/results/optimalcurves.png"
+                 alt="Capture fraction vs axial velocity" loading="lazy">
+            <figcaption>Capture fraction as a function of initial axial velocity at optimised parameters. The step-function edge reflects the deterministic mean-force regime of the Zeeman slower.</figcaption>
+          </figure>
+        </div>
+      </div>
     </div>
 
     <!-- TDVP -->
     <div class="section">
-      <span class="section-label">Master&rsquo;s project - IIT Madras, 2024&ndash;2025</span>
-      <h2>Novel techniques for open quantum system dynamics: multi-mode laser cooling</h2>
-
-      <p>Exact simulation of open quantum systems is prohibitively expensive for more than one or two modes: the density matrix grows exponentially with the number of modes. We developed a scalable alternative using a sum-of-Gaussians (SoG) variational ansatz - a superposition of displaced, squeezed Gaussian states - evolved under the McLachlan time-dependent variational principle (TDVP). The state is non-Gaussian overall, and accuracy improves with the number of Gaussian components, but the computational cost scales as O(N<sub>Gauss</sub>&thinsp;&times;&thinsp;d) rather than exponentially with mode number d.</p>
-
-      <p>Open-system dissipation is handled via quantum trajectories (MCWF): between jumps, the state evolves under a non-Hermitian effective Hamiltonian via TDVP; at each jump event, the jump operator is applied analytically within the Gaussian manifold. All matrix elements - overlaps, force vectors, Gram matrices - reduce to analytic single-mode Gaussian expectation values, derived and implemented as a core part of this work. Benchmarked against QuTiP on Kerr oscillators and 2D sideband cooling trajectories.</p>
-
-      <figure class="fig">
-        <div class="fig-row">
-          <img src="https://raw.githubusercontent.com/krishnasogathur/multimode-tdvp/main/results/cooling_2d/n_vs_t.png"
-               alt="Phonon number vs time - 2D sideband cooling" loading="lazy">
-          <img src="https://raw.githubusercontent.com/krishnasogathur/multimode-tdvp/main/results/cooling_2d/pops_vs_t.png"
-               alt="Internal state populations vs time" loading="lazy">
+      <div class="section-inner">
+        <div class="section-text">
+          <span class="section-label">Master&rsquo;s project - IIT Madras, 2024&ndash;2025</span>
+          <h2>Novel techniques for open quantum system dynamics: multi-mode laser cooling</h2>
+          <p>Exact simulation of open quantum systems is prohibitively expensive for more than one or two modes: the density matrix grows exponentially with the number of modes. We developed a scalable alternative using a sum-of-Gaussians (SoG) variational ansatz - a superposition of displaced, squeezed Gaussian states - evolved under the McLachlan time-dependent variational principle (TDVP). The state is non-Gaussian overall, and accuracy improves with the number of Gaussian components, but the computational cost scales as O(N<sub>Gauss</sub>&thinsp;&times;&thinsp;d) rather than exponentially with mode number d.</p>
+          <p>Open-system dissipation is handled via quantum trajectories (MCWF): between jumps, the state evolves under a non-Hermitian effective Hamiltonian via TDVP; at each jump event, the jump operator is applied analytically within the Gaussian manifold. All matrix elements - overlaps, force vectors, Gram matrices - reduce to analytic single-mode Gaussian expectation values, derived and implemented as a core part of this work. Benchmarked against QuTiP on Kerr oscillators and 2D sideband cooling trajectories.</p>
+          <p style="font-size: 0.84rem;">Code: <a href="projects.html#multimode-tdvp" style="color: var(--accent); font-weight: 500;">multimode-tdvp</a> &middot; <a href="https://github.com/krishnasogathur/multimode-tdvp" target="_blank" style="color: var(--accent); font-weight: 500;">GitHub &nearr;</a></p>
         </div>
-        <figcaption>2D sideband cooling: phonon number (left) and internal state populations (right) from SoG-TDVP trajectories vs QuTiP mcsolve (Fock cutoff 35). Both modes cool simultaneously under a single laser drive.</figcaption>
-      </figure>
-
-      <p style="margin-top: 8px; font-size: 0.84rem;">Code: <a href="projects.html#multimode-tdvp" style="color: var(--accent); font-weight: 500;">multimode-tdvp</a> &middot; <a href="https://github.com/krishnasogathur/multimode-tdvp" target="_blank" style="color: var(--accent); font-weight: 500;">GitHub &nearr;</a></p>
+        <div class="section-aside">
+          <figure class="fig">
+            <img src="https://raw.githubusercontent.com/krishnasogathur/multimode-tdvp/main/results/cooling_2d/n_vs_t.png"
+                 alt="Phonon number vs time - 2D sideband cooling" loading="lazy">
+            <figcaption>Phonon number vs time: SoG-TDVP vs QuTiP mcsolve for 2D sideband cooling. Both modes cool simultaneously under a single laser drive.</figcaption>
+          </figure>
+          <figure class="fig">
+            <img src="https://raw.githubusercontent.com/krishnasogathur/multimode-tdvp/main/results/cooling_2d/pops_vs_t.png"
+                 alt="Internal state populations vs time" loading="lazy">
+            <figcaption>Internal state populations vs time from SoG-TDVP trajectories vs QuTiP (Fock cutoff 35).</figcaption>
+          </figure>
+        </div>
+      </div>
     </div>
 
     <!-- Summer internship -->
     <div class="section">
-      <span class="section-label">Summer internship - Rb Quantum Simulator lab</span>
-      <h2>Optical tweezers and laser locking for a Rb quantum simulator</h2>
-
-      <p>Worked on two problems: generating optical tweezers using an acousto-optic deflector (AOD) for a Raman laser, and phase-locking two Raman lasers using an optical phase-locked loop (OPLL).</p>
-
-      <figure class="fig">
-        <img src="media/summer24-aod-align.png" alt="Optical tweezers using AOD">
-        <figcaption>Optical tweezers of the Raman laser generated using an AOD (left). Optimised diffraction efficiency curve (right).</figcaption>
-      </figure>
-
-      <figure class="fig">
-        <img src="media/summer24-beat.png" alt="Laser lock spectrum">
-        <figcaption>Laser lock spectrum of Raman lasers using an optical phase-locked loop.</figcaption>
-      </figure>
-
+      <div class="section-inner">
+        <div class="section-text">
+          <span class="section-label">Summer internship - Rb Quantum Simulator lab</span>
+          <h2>Optical tweezers and laser locking for a Rb quantum simulator</h2>
+          <p>Worked on two problems: generating optical tweezers using an acousto-optic deflector (AOD) for a Raman laser, and phase-locking two Raman lasers using an optical phase-locked loop (OPLL).</p>
+        </div>
+        <div class="section-aside">
+          <figure class="fig">
+            <img src="media/summer24-aod-align.png" alt="Optical tweezers using AOD">
+            <figcaption>Optical tweezers of the Raman laser generated using an AOD (left). Optimised diffraction efficiency curve (right).</figcaption>
+          </figure>
+          <figure class="fig">
+            <img src="media/summer24-beat.png" alt="Laser lock spectrum">
+            <figcaption>Laser lock spectrum of Raman lasers using an optical phase-locked loop.</figcaption>
+          </figure>
+        </div>
+      </div>
     </div>
 
   </main>
