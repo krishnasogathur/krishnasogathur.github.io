@@ -236,7 +236,29 @@
              alt="Capture fraction vs axial velocity" loading="lazy">
         <figcaption>Capture fraction as a function of initial axial velocity at optimised parameters. The step-function edge reflects the deterministic mean-force regime of the Zeeman slower.</figcaption>
       </figure>
-      <p style="margin-top: 8px; font-size: 0.84rem;">Code: <a href="projects.html#azs-2dmot" style="color: var(--accent); font-weight: 500;">azs-2dmot</a> &middot; <a href="https://github.com/krishnasogathur/azs-2dmot" target="_blank" style="color: var(--accent); font-weight: 500;">GitHub &nearr;</a></p>
+      <p style="margin-top: 8px; font-size: 0.84rem;">Code: <a href="https://github.com/krishnasogathur/azs-2dmot" target="_blank" style="color: var(--accent); font-weight: 500;">GitHub &nearr;</a></p>
+    </div>
+
+    <!-- TDVP -->
+    <div class="section">
+      <span class="section-label">Master&rsquo;s project - IIT Madras, 2024&ndash;2025</span>
+      <h2>Novel techniques for open quantum system dynamics: multi-mode laser cooling</h2>
+
+      <p>Exact simulation of open quantum systems is prohibitively expensive for more than one or two modes: the density matrix grows exponentially with the number of modes. We developed a scalable alternative using a sum-of-Gaussians (SoG) variational ansatz - a superposition of displaced, squeezed Gaussian states - evolved under the McLachlan time-dependent variational principle (TDVP). The state is non-Gaussian overall, and accuracy improves with the number of Gaussian components, but the computational cost scales as O(N<sub>Gauss</sub>&thinsp;&times;&thinsp;d) rather than exponentially with mode number d.</p>
+
+      <p>Open-system dissipation is handled via quantum trajectories (MCWF): between jumps, the state evolves under a non-Hermitian effective Hamiltonian via TDVP; at each jump event, the jump operator is applied analytically within the Gaussian manifold. All matrix elements - overlaps, force vectors, Gram matrices - reduce to analytic single-mode Gaussian expectation values, derived and implemented as a core part of this work. Benchmarked against QuTiP on Kerr oscillators and 2D sideband cooling trajectories.</p>
+
+      <figure class="fig">
+        <div class="fig-row">
+          <img src="https://raw.githubusercontent.com/krishnasogathur/multimode-tdvp/main/results/cooling_2d/n_vs_t.png"
+               alt="Phonon number vs time - 2D sideband cooling" loading="lazy">
+          <img src="https://raw.githubusercontent.com/krishnasogathur/multimode-tdvp/main/results/cooling_2d/pops_vs_t.png"
+               alt="Internal state populations vs time" loading="lazy">
+        </div>
+        <figcaption>2D sideband cooling: phonon number (left) and internal state populations (right) from SoG-TDVP trajectories vs QuTiP mcsolve (Fock cutoff 35). Both modes cool simultaneously under a single laser drive.</figcaption>
+      </figure>
+
+      <p style="margin-top: 8px; font-size: 0.84rem;">Code: <a href="projects.html#multimode-tdvp" style="color: var(--accent); font-weight: 500;">multimode-tdvp</a> &middot; <a href="https://github.com/krishnasogathur/multimode-tdvp" target="_blank" style="color: var(--accent); font-weight: 500;">GitHub &nearr;</a></p>
     </div>
 
     <!-- Summer internship -->
