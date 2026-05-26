@@ -326,8 +326,8 @@
       <h2>Lunar elemental mapping from Chandrayaan-2 XRF data</h2>
       <p class="project-affil">Inter-IIT Tech Meet 2024 &middot; <a href="https://github.com/krishnasogathur/Astro-High-Prep-Inter-IIT-2024" target="_blank">Astro-High-Prep-Inter-IIT-2024</a></p>
       <div class="project-body">
-        <p>Built a forward model for X-ray fluorescence (XRF) from the lunar surface excited by solar flares, fitted to data from the CLASS instrument aboard Chandrayaan-2. The pipeline extracts flare-coincident CLASS spectra, constructs a local XRF model with primary and secondary fluorescence contributions and a Rayleigh scattering term, then fits elemental abundances via PYXSPEC.</p>
-        <p>Key contributions: a vectorised XRF forward model (FASTER.py) using tensorised integrals for element-wise photoelectric cross-sections and characteristic line emission, and an analytic Rayleigh scattering integral against the solar spectrum. The scattering model reproduces the observed continuum across 0.9-4.2 keV.</p>
+        <p>Used five years of data from the CLASS X-ray spectrometer and XSM solar monitor aboard Chandrayaan-2 to map elemental abundances on the lunar surface. Solar flares excite XRF emission from the regolith; we built a forward model - primary and secondary fluorescence plus Rayleigh scattering against the solar spectrum - and solved the inversion problem to extract elemental composition from the measured spectra.</p>
+        <p>Key contributions: a vectorised XRF forward model (FASTER.py) using tensorised integrals for element-wise photoelectric cross-sections and characteristic line emission, and an analytic Rayleigh scattering integral. Fitting was done via PYXSPEC across the 0.9-4.2 keV band.</p>
       </div>
 
       <figure class="fig">
